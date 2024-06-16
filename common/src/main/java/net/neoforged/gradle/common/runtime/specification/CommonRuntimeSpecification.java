@@ -3,6 +3,7 @@ package net.neoforged.gradle.common.runtime.specification;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
+import java.util.Locale;
 import net.neoforged.gradle.common.runtime.definition.CommonRuntimeDefinition;
 import net.neoforged.gradle.common.runtime.extensions.CommonRuntimeExtension;
 import net.neoforged.gradle.dsl.common.runtime.spec.Specification;
@@ -63,7 +64,7 @@ public abstract class CommonRuntimeSpecification implements Specification {
     @NotNull
     @Override
     public String getIdentifier() {
-        return getName() + StringUtils.capitalize(getDistribution().getName().toLowerCase()) + version;
+        return getName() + StringUtils.capitalize(getDistribution().getName().toLowerCase(Locale.ROOT)) + version;
     }
     
     @Override

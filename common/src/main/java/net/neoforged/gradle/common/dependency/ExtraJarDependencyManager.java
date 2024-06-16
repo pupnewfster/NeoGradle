@@ -2,6 +2,7 @@ package net.neoforged.gradle.common.dependency;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import java.util.Locale;
 import net.neoforged.gradle.common.runtime.tasks.GenerateExtraJar;
 import net.neoforged.gradle.dsl.common.extensions.MinecraftArtifactCache;
 import net.neoforged.gradle.dsl.common.extensions.dependency.replacement.DependencyReplacement;
@@ -34,7 +35,8 @@ public abstract class ExtraJarDependencyManager {
     }
     
     public static String generateCoordinateFor(final DistributionType type, final String version) {
-        return String.format("net.minecraft:%s:%s:%s-extra", type.getName().toLowerCase(), version, type.getName().toLowerCase());
+        String name = type.getName().toLowerCase(Locale.ROOT);
+        return String.format("net.minecraft:%s:%s:%s-extra", name, version, name);
     }
 
     @Inject
